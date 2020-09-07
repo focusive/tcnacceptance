@@ -1,0 +1,27 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebangkok/thaichanaspec.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codebangkok/thaichanaspec/issues"
+  },
+  "homepage": "https://github.com/codebangkok/thaichanaspec#readme",
+  "devDependencies": {
+    "cucumber": "^6.0.5",
+    "cypress": "^5.1.0",
+    "cypress-cucumber-preprocessor": "^2.5.5"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
