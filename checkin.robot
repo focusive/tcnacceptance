@@ -2,32 +2,38 @@
 Library    SeleniumLibrary
 Library    BuiltIn
 Library    String
+Suite Setup    Open Browser    about:blank    chrome
+Suite Teardown    Close Browser
 
 *** Variable ***
-${url_thaichana}        https://thaichanabe.azurewebsites.net
+${url_thaichana}        https://thaichana.azurewebsites.net/
 
 *** Test Cases ***
 Scenario: Check-in To KhaoYai
     Given Open ThaiChana App At KhaoYai
     When Press Check-in Button
-    Then Show KhaoYai In The List
+    Then Show เช็คอินแล้ว
 
-Scenario: Check-out From KhaoYai
-    Given Show KhaoYai In The List
-    When Press Check-out Button
-    Then Remove KhaoYai Out Of The List
+Scenario: Check-out
+    Then Press Check-out Button
 
 *** Keywords ***
 Open ThaiChana App At KhaoYai
-    Open Browser    about:blank    chrome
     Go To           ${url_thaichana}
+    Sleep    1s
     
 Press Check-in Button
-    Click Element        ${btn}
+    Click Button        checkin
+    Wait Until Page Contains    โปรดระบุเบอร์โทรศัพท์
+    Input Text    tel    0812345678
+    Click Button        confirm
+    Wait Until Page Contains    กำลังดำเนินการ
 
-Then Show KhaoYai In The List
+Then Show เช็คอินแล้ว
+    Wait Until Page Contains    เข็คอินแล้ว
+    Wait Until Page Contains    เช็คเอาท์
 
 Press Check-out Button
-
-Remove KhaoYai Out Of The List
+    Click Button        checkout
+    Page Should Contain    เช็คเอาท์แล้ว
 
