@@ -2,6 +2,8 @@
 Library    SeleniumLibrary
 Library    BuiltIn
 Library    String
+Suite Setup    Open Browser    about:blank    chrome
+Suite Teardown    Close Browser
 
 *** Variable ***
 ${url_thaichana}        https://thaichana.azurewebsites.net/
@@ -17,7 +19,6 @@ Scenario: Check-out
 
 *** Keywords ***
 Open ThaiChana App At KhaoYai
-    Open Browser    about:blank    chrome
     Go To           ${url_thaichana}
     Sleep    1s
     
